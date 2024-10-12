@@ -1,21 +1,37 @@
 :root {
-  --main: #101828;
-  --text: #475467;
+  --main: #121417;
+  --bckgr-main:#f8f8f8;
+  --bckgr-yellow: #fbe9ba;
+  --bckgr-blue: #CBDED3;
+  --bckgr-white-blue: #bfd6ea;
+  --bckgr-pink:#f2c0bd;
+  --bckgr-white-pink: #f4c8ba;
+  --accent-yellow:#f4c550;
+  --accent-blue: #9fbaae;
+  --accent-blue-white: #9fb7ce;
+  --accent-pink:#e0a39a;
+  --accent-pink-white:#f0aa8d;
+  --accent-hover: #ffdc86;
+  --text: #121417b3;
+  --gray: #8a8a89;
+  --dynamic-color: var(--bckgr-yellow);
+
+
   --white: #fff;
   --inputs: #f7f7f7;
   --badges: #f2f4f7;
-  --gray: #6c717b;
+  
   --gray-light: #dadde1;
-  --button: #e44848;
   --button-hover: #d84343;
-  --rating: #ffc531;
+
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   box-sizing: border-box;
+  color: var(--main);
 }
 
 h1,
@@ -47,6 +63,7 @@ a {
 button {
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 img {

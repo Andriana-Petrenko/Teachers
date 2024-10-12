@@ -2,6 +2,7 @@ import css from './Layout.module.css'
 import Navigation from '../Navigation/Navigation'
 import Logo from '../Logo/Logo'
 import { Outlet } from 'react-router-dom'
+import AuthNav from '../AuthNav/AuthNav'
 
 
 const Layout = () => {
@@ -9,7 +10,8 @@ const Layout = () => {
     <>
            <header className={css.header}>
                   <Logo/>
-                  <Navigation/>
+             <Navigation />
+             <AuthNav/>
           </header>
              <main>
                 <Outlet />

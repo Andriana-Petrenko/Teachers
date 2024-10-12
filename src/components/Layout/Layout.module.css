@@ -1,7 +1,5 @@
 .header{
-    border-bottom: 1px solid var(--badges);
-    padding: 24px 64px;
-    background-color: var(--inputs);
+    padding: 20px 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;

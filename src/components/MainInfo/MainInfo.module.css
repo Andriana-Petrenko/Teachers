@@ -1,53 +1,81 @@
 .main_container{
-    background-image: url('../../assets/images/hero_image-min.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 696px;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 64px;
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url('../../assets/images/hero_image_2x-min.png');
-        }
+    gap:24px;
+    margin-bottom: 24px;
 }
- 
+
 .main_wrapper{
-max-width: 571px;  
+    background-color: var(--bckgr-main);
+    border-radius: 30px;
+    max-width: 720px;
+    padding: 98px 64px;
+    position: relative;
+    z-index: -2;
+    
 }
 
 .main_title{
-    font-weight: 600;
+    font-weight: 500;
     font-size: 48px;
-    line-height: 0.67;
-    color: var(--inputs);
-    margin-bottom: 16px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: var(--main);
+    margin-bottom: 32px;
 }
 
-.main_text {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 1.33;
-    color: var(--inputs);
-    margin-bottom: 40px;
+.main_title>span{
+    font-style: italic;
+    font-weight: 400;
+    
+    position: relative;  
+}
+
+.main_title>span::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 10px;
+    width: 195px;
+    height: 40px;
+    border-radius: 10px; 
+    background-color:var(--dynamic-color);
+    transition: background-color 1s ease-in-out;
+    z-index:-1;
+}
+
+.main_text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 137%;
+    letter-spacing: -0.02em;
+    width: 471px;
+    margin-bottom: 64px;
 }
 
 .main_button{
-    border-radius: 200px;
-    width: 173px;
-    height: 56px;
-    background-color: var(--button);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: inherit;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-    color: var(--white);
+    border-radius: 12px;
+    padding: 16px 88px;
+    width: 267px;
+    height: 60px;
+    background-color: var(--accent-yellow);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: var(--main);
+    transition: background-color 1s ease-in-out;
 }
 
 .main_button:hover{
-    background-color: var(--button-hover);
+    background-color: var(--accent-hover);
+}
+
+.photo_wrapper{
+    width: 568px;
+    border-radius: 30px;
+    background-image: url('../assets/images/hero_yellow.png');
+    background-size: 568px 530px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
 }

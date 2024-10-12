@@ -1,0 +1,31 @@
+.auth_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:16px;
+}
+
+.login_btn{
+    display: flex;
+    align-items: center;
+    gap:8px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+    background-color:transparent;
+}
+
+.register_btn{
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    border-radius: 12px;
+    padding: 14px 39px;
+    width: 166px;
+    height: 48px;
+    color: var(--white);
+    background-color: var(--main);
+}
