@@ -10,7 +10,7 @@
     max-width: 720px;
     padding: 98px 64px;
     position: relative;
-    z-index: -2;
+    z-index: 1;
     
 }
 
@@ -26,7 +26,6 @@
 .main_title>span{
     font-style: italic;
     font-weight: 400;
-    
     position: relative;  
 }
 

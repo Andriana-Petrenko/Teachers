@@ -37,3 +37,21 @@
 .modal_btn:hover {
     background-color: var(--accent-hover);
 }
+
+.password_input_wrapper {
+    position: relative;
+}
+
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.toggle_password {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

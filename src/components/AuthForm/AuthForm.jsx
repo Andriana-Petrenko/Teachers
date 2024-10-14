@@ -4,6 +4,8 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import css from "./AuthForm.module.css"
+import { FiEyeOff, FiEye  } from "react-icons/fi";
+import { useState } from 'react';
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -31,6 +33,10 @@ const registerSchema = yup.object().shape({
 });
 
 const AuthForm = ({ operationType, closeAuthModal }) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
     // const dispatch = useDispatch();
 
     //  if (operationType === 'login') {
@@ -96,12 +102,15 @@ const AuthForm = ({ operationType, closeAuthModal }) => {
         {errors.email && <p>{errors.email.message}</p>} 
       </div>
 
-      <div>
+      <div className={css.password_input_wrapper}>
         <input className={css.form_input}
-          type="password" 
+          type={showPassword ? 'text' : 'password'} 
           {...register('password')}
          placeholder="Password" 
-        />
+              />
+        <span onClick={togglePasswordVisibility} className={css.toggle_password}>
+          {showPassword ?  < FiEye size={20} />: <FiEyeOff size={20}/>}
+        </span>
         {errors.password && <p>{errors.password.message}</p>}
       </div>
       <button type="submit" className={css.modal_btn}>
