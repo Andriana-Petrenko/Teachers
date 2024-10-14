@@ -1,0 +1,39 @@
+.auth_form{
+    display: flex;
+    flex-direction: column;
+    gap:18px;
+}
+
+.form_input{
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px;
+    width: 438px;
+    height: 54px;
+    color: var(--main);
+}
+
+.form_input::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 137%;
+    color: var(--main);
+}
+
+.modal_btn{
+    border-radius: 12px;
+    margin-top: 22px;
+    width: 438px;
+    height: 60px;
+    background-color: var(--accent-yellow);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: var(--main);
+    transition: background-color 1s ease-in-out;
+}
+
+.modal_btn:hover {
+    background-color: var(--accent-hover);
+}
