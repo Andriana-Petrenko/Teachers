@@ -17,6 +17,10 @@
     background-color:transparent;
 }
 
+.login_btn>svg{
+    transition: stroke 1s ease-in-out;
+}
+
 .register_btn{
     font-family: inherit;
     font-weight: 700;

@@ -57,6 +57,7 @@
     width: 267px;
     height: 60px;
     background-color: var(--accent-yellow);
+    font-family: inherit;
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;

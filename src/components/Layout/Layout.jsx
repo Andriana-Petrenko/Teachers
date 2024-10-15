@@ -9,7 +9,7 @@ const Layout = () => {
     return (
     <>
            <header className={css.header}>
-                  <Logo/>
+             <Logo/>
              <Navigation />
              <AuthNav/>
           </header>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Logo = () => {
   return (
       <Link to="/" className={css.logo}>
-          <svg width="28" height="28" >
+          <svg width="28" height="27" >
             <use href={`${icons}#logo`} />
           </svg>
           <p>LearnLingo</p>

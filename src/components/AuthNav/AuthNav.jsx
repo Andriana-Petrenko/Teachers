@@ -2,7 +2,7 @@ import css from './AuthNav.module.css'
 // import { NavLink } from "react-router-dom";
 
 import icons from '../../assets/sprite.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AuthModal from '../AuthModal/AuthModal';
 // import clsx from 'clsx';
 // const activeLinkClass = ({ isActive }) => {
@@ -21,6 +21,21 @@ const onOpenAuthModal = (type) => {
   setOperationType(type);
   setShowAuthModal(true);
   };
+
+  const [currentColorIndex, setCurrentColorIndex] = useState(0);
+ 
+  useEffect(() => {
+     const colors = [
+    'var(--accent-blue)', 'var(--accent-blue-white)', 'var(--accent-pink)',  'var(--accent-pink-white)', 'var(--accent-yellow)' 
+  ];
+      const interval = setInterval(() => {
+         setCurrentColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+      document.documentElement.style.setProperty('--color3', colors[currentColorIndex]);
+    }, 2000); 
+
+    return () => clearInterval(interval);
+  }, [currentColorIndex]);
+
 
   return (
     <div className={css.auth_wrapper}>

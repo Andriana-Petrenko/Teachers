@@ -1,0 +1,84 @@
+.photo_wrapper{
+    width:120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--bckgr-yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-width: 120px;
+}
+
+.photo{
+    border-radius: 50%;
+    width:96px;
+    height: 96px;
+}
+
+.photo_wrapper::before {
+    content: '';
+    position: absolute;
+    top: 19px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #38cd3e;
+    border: 2px solid var(--white);
+
+}
+
+.info_wrapper{
+max-width:968px;
+}
+
+.read_btn{
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var(--main);
+    background-color: transparent;
+}
+
+.teacher_levels{
+    display: flex;
+    margin-top: 32px;
+    gap:8px;
+}
+
+.level_item{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 114%;
+    color: var(--main);
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+    padding: 8px 12px;
+}
+
+.level_item:first-child{
+    background-color: var(--accent-yellow);
+}
+
+.lesson_button {
+    display: block;
+    border-radius: 12px;
+    width: 232px;
+    height: 60px;
+    background-color: var(--accent-yellow);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: var(--main);
+    transition: background-color 1s ease-in-out;
+    margin-top:32px;
+}
+
+.lesson_button:hover {
+    background-color: var(--accent-hover);
+}
