@@ -6,7 +6,7 @@ const TeachersList = ({teachers}) => {
     <ul className={css.teachers_list}>
         {teachers.map(item => (
           <li key={nanoid()} className={css.item}>
-            <TeachersItem teacher={item}/>
+            <TeachersItem teacher={item} />
           </li>
         ))}
       </ul>

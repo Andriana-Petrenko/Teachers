@@ -82,3 +82,12 @@ max-width:968px;
 .lesson_button:hover {
     background-color: var(--accent-hover);
 }
+
+.green{
+    color:var(--green);
+}
+
+.heard_icon{
+stroke: currentColor;
+   
+}
