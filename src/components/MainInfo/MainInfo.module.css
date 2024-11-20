@@ -47,7 +47,7 @@
     font-size: 16px;
     line-height: 137%;
     letter-spacing: -0.02em;
-    width: 471px;
+    max-width: 471px;
     margin-bottom: 64px;
 }
 

@@ -30,7 +30,34 @@
 }
 
 .info_wrapper{
-max-width:968px;
+    max-width:968px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--main);
+    margin-bottom: 32px;
+}
+
+.teacher_name_wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 56px;
+}
+
+.teacher_name{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+.lessons_info{
+display: flex;
 }
 
 .read_btn{
@@ -90,4 +117,14 @@ max-width:968px;
 .heard_icon{
 stroke: currentColor;
    
+}
+
+.position{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--gray);
+}
+.position>span{
+    color: var(--main);
 }
