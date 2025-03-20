@@ -1,12 +1,16 @@
-import { nanoid } from 'nanoid'
+import { useSelector } from 'react-redux';
 import TeachersItem from '../TeachersItem/TeachersItem'
 import css from "./TeachersList.module.css"
-const TeachersList = ({teachers}) => {
+import { selectTeachers } from '../../redux/teachers/selectors';
+import { nanoid } from 'nanoid';
+
+const TeachersList = () => {
+  const teachers = useSelector(selectTeachers);
   return (
     <ul className={css.teachers_list}>
-        {teachers.map(item => (
+        {teachers.map(teacher => (
           <li key={nanoid()} className={css.item}>
-            <TeachersItem teacher={item} />
+            <TeachersItem teacher={teacher} />
           </li>
         ))}
       </ul>

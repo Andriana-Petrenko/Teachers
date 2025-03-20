@@ -1,33 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { Helmet } from "react-helmet-async"
 import { useDispatch, useSelector} from "react-redux";
-import TruckList from "../../components/TruckList/TruckList";
-import Filters from "../../components/Filters/Filters";
 import css from "./CatalogPage.module.css"
-import { selectFilteredTrucks } from "../../redux/filters/selectors";
-import { isLoading } from "../../redux/truck/selectors";
-import teachers from "../../teacher.json"
 import TeachersList from "../../components/TeachersList/TeachersList";
+import { isLoading, selectLastKey, selectTeachers} from "../../redux/teachers/selectors";
+import { fetchTeachers } from "../../redux/teachers/operations";
 
 const CatalogPage = () => {
-  const filteredTrucks = useSelector(selectFilteredTrucks);
-  const loading = useSelector(isLoading); 
-  const [visibleCount, setVisibleCount] = useState(4);
+  const dispatch = useDispatch();
+  const lastKey = useSelector(selectLastKey);
+  const loading = useSelector(isLoading);
+  // const teachers = useSelector(selectTeachers);
 
 useEffect(() => {
     document.body.style.backgroundColor = 'var(--bckgr-main)';
     return () => {
-      document.body.style.backgroundColor = 'var(--white)';
+    document.body.style.backgroundColor = 'var(--white)';
     };
 }, []);
   
   
-  useEffect(() => {
-    setVisibleCount(4); 
-  }, [filteredTrucks]);
+ useEffect(() => {
+    dispatch(fetchTeachers());
+  }, [dispatch]);
   
   const onClickButton = () => {
-    setVisibleCount((prevCount) => prevCount + 4);
+   if (lastKey) {
+      dispatch(fetchTeachers({ lastKey }));
+    }
   };
   
   return (
@@ -36,10 +36,9 @@ useEffect(() => {
             <title>Catalog Page</title>
         </Helmet>
         <section>
-            {/* <Filters/> */}
-        <TeachersList teachers={teachers.slice(0, visibleCount)} />
+        <TeachersList />
         </section>
-      {!loading && visibleCount < teachers.length && (
+      {lastKey && !loading &&  (
         <button className={css.search_button} type="button" onClick={onClickButton}>
           Load more
         </button>

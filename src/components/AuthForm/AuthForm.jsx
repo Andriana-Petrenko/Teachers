@@ -2,10 +2,13 @@ import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch } from 'react-redux';
 import css from "./AuthForm.module.css"
 import { FiEyeOff, FiEye  } from "react-icons/fi";
 import { useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { loginUser, registerUser } from '../../redux/auth/operations';
+import { selectError } from '../../redux/auth/selectors';
+
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -33,11 +36,12 @@ const registerSchema = yup.object().shape({
 });
 
 const AuthForm = ({ operationType, closeAuthModal }) => {
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
-    // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
 
     //  if (operationType === 'login') {
     //   dispatch(login(data))
@@ -51,7 +55,7 @@ const AuthForm = ({ operationType, closeAuthModal }) => {
     //     });
     //   closeAuthModal();
     // } else {
-    //   dispatch(register(data)
+    //   dispatch(register(data))
     //     .unwrap()
     //     .then(() => {
     //       toast.success('You successfully register!');
@@ -70,17 +74,38 @@ const AuthForm = ({ operationType, closeAuthModal }) => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async ({email,password, name}) => {
     if (operationType === 'login') {
-      console.log('Logging in with:', data);
+      // await signInWithEmailAndPassword(auth, email, password);
+      // console.log('Logging in with:', email, password);
+       dispatch(loginUser({email,password}))
+        .unwrap()
+        .then(() => {
+          toast.success('You successfully login!');
+          console.log('login:', {email,password});
+        })
+        .catch(error => {
+          toast.error('Failed to login!', error);
+        });
+      closeAuthModal();
     } else {
-      console.log('Registering with:', data);
+        dispatch(registerUser({email,password,name}))
+        .unwrap()
+        .then(() => {
+          toast.success('You successfully register!');
+          console.log('register', {email,password,name});
+        })
+        .catch(error => {
+          toast.error('Failed register!', error);
+        });
+      closeAuthModal();
     }
     closeAuthModal();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={css.auth_form}>
+ <>
+          <form onSubmit={handleSubmit(onSubmit)} className={css.auth_form}>
 {operationType === 'register' && (
         <>
           <div>
@@ -117,6 +142,7 @@ const AuthForm = ({ operationType, closeAuthModal }) => {
         {operationType === 'login' ? 'Log In' : 'Sign Up'}
       </button>
     </form>
+ </> 
   );
 };
 

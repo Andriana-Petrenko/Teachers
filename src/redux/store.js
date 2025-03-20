@@ -11,9 +11,10 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { truckReducer } from './truck/slice';
-import { filtersReducer } from './filters/slice';
+
 import { favouritesReducer } from './favourites/slice';
+import { authReducer } from './auth/slice';
+import { teachersReducer } from './teachers/slice';
 
 
 
@@ -22,15 +23,10 @@ const favouritesPersistConfig = {
   storage,
 };
 
-const filtersPersistConfig = {
-  key: "filters",
-  storage,
-};
-
 export const store = configureStore({
   reducer: {
-    trucks:truckReducer,
-    filters: persistReducer(filtersPersistConfig, filtersReducer),
+    auth: authReducer,
+    teachers: teachersReducer,
     favourites:persistReducer(favouritesPersistConfig, favouritesReducer),
   },
   middleware: (getDefaultMiddleware) =>
