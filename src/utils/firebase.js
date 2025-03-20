@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase, push, ref, set } from "firebase/database";
-import teachers from "../teacher.json;"
+import teachers from "../teacher.json";
 // TODO: Add SDKs for Firebase products that you want to use
 // const API_KEY = import.meta.env.VITE_API_KEY;
 
